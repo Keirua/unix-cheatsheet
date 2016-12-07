@@ -49,27 +49,38 @@ Find all the files accessed less than 60 minutes ago :
 
 ## grep
 
-### Case sensitive search a string/regex inside a file
+### Search a string/regex inside a file
 
     $ grep "string_or_regex" filename
 
-    $ grep "this" demo_file
-    this line is the 1st lower case line in this file.
-    Two lines above this line is empty.
-    And this is the last line.
-
-
-search can be **case insensitive** using **grep -i**
+By default, the search is case sensitive. It can be **case insensitive** using **grep -i**
 
     $ grep -i "is" filename
 
 -> It will match "is", "Is", "iS" or "IS"
 
-**Whole word search** requires the **-w** flag
+### **Whole word search** requires the **-w** flag
 
     $ grep -w "it" filename
 
 -> "it" will match, but not "git"
+
+### Display the 3 lines around the match :
+
+    $ grep -C 3 "string" FILENAME
+
+### Invert match using grep -v
+
+    $ grep -v "git" README.md
+
+Display all the lines in the file README that do not contain "git"
+
+### Display matching line requires the -n flag
+
+    $ grep -n "git" README.md
+    66:-> "it" will match, but not "git"
+
+git is on line 66
 
 ## curl
 
