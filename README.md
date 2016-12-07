@@ -10,12 +10,66 @@
 
 ## find
 
-### Using regex
+### Find by filename
+
+    $ find . -name "main.c"
+
+### Find by filename with regex
 
     $ find . -name "tar"
     # no results
     $ find . -iname "*tar" # quotes matter
     ./understanding-tar
+
+### Find only files or directories
+
+Find all directories
+
+    $ find . -type d
+
+
+Find only the normal files
+
+    $ find . -type f
+
+### Limit search depth
+
+    $ find . -maxdepth 2 -type d
+
+### Find recently accessed or modified files
+
+Find all the files modified less than 60 minutes ago :
+
+    $ find . -mmin -60
+
+Find all the files accessed less than 60 minutes ago :
+
+    $ find -amin -60
+
+
+## grep
+
+### Case sensitive search a string/regex inside a file
+
+    $ grep "string_or_regex" filename
+
+    $ grep "this" demo_file
+    this line is the 1st lower case line in this file.
+    Two lines above this line is empty.
+    And this is the last line.
+
+
+search can be **case insensitive** using **grep -i**
+
+    $ grep -i "is" filename
+
+-> It will match "is", "Is", "iS" or "IS"
+
+**Whole word search** requires the **-w** flag
+
+    $ grep -w "it" filename
+
+-> "it" will match, but not "git"
 
 ## curl
 
