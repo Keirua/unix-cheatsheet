@@ -21,13 +21,28 @@
 
 ### Follow redirects : 
 
-    curl -L
+    curl -I -L  www.google.com
+    HTTP/1.1 302 Found
+    Cache-Control: private
+    Content-Type: text/html; charset=UTF-8
+    Location: http://www.google.fr/?gfe_rd=cr&ei=lgdIWKvcNoLf8gfD0regAQ
+    Content-Length: 258
+    Date: Wed, 07 Dec 2016 12:59:02 GMT
+
+    HTTP/1.1 200 OK
+    ...
 
 ### Display headers :
 
 #### With a HEAD method :
 
-    curl -I www.google.com
+    $ curl -I www.google.com
+    HTTP/1.1 302 Found
+    Cache-Control: private
+    Content-Type: text/html; charset=UTF-8
+    Location: http://www.google.fr/?gfe_rd=cr&ei=kAdIWIDIEozf8gfDkbGoDA
+    Content-Length: 258
+    Date: Wed, 07 Dec 2016 12:58:56 GMT
 
 #### But most of the time :
 
