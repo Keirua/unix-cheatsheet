@@ -1,5 +1,14 @@
 # Unix cheatsheet
 
+ - ln
+ - find
+ - grep
+ - curl
+ - rsync
+ - tar
+ - watch
+ - uname
+
 ## ln
 
     ln -s {filename} {symbolic-filename}
@@ -26,7 +35,6 @@
 Find all directories
 
     $ find . -type d
-
 
 Find only the normal files
 
@@ -210,13 +218,29 @@ You can also specify a pattern using a regex with the flag --wildcards :
 
     $ tar xvf archive_file.tar --wildcards '*.py'
 
-
-## xargs
-
-    echo a b |xargs -n1 -I plop echo plop
-
 ## watch
 
 ### Periodically execute a command
 
-    watch -n 1 -t date
+Every 1 second, execute the "date" command
+
+    $ watch -n 1 -t date
+
+
+## uname
+
+uname give some sytem details information. The -a (or --all) option prints everything.
+
+    $ uname -a
+    Linux pc-keirua 4.4.0-51-generic #72-Ubuntu SMP Thu Nov 24 18:29:54 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+`man uname` gives some other options in order to get information with a lower granularity level
+
+    $ uname -s
+    Linux
+    $ uname -n
+    pc-work
+    $ uname -m 
+    x86_64
+
+    
