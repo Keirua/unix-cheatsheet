@@ -1,5 +1,7 @@
 # Unix cheatsheet
 
+Some CLI goodness. A good place to get started before reading this collection of tools is [The Art Of Command Line](is https://github.com/jlevy/the-art-of-command-line).
+
  - ln
  - find
  - grep
@@ -227,7 +229,7 @@ Every 1 second, execute the "date" command
     $ watch -n 1 -t date
 
 
-## uname
+## uname && lsb_release
 
 uname give some sytem details information. The -a (or --all) option prints everything.
 
@@ -243,4 +245,75 @@ uname give some sytem details information. The -a (or --all) option prints every
     $ uname -m 
     x86_64
 
-    
+lsb_release also gives details about the distro info
+
+lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 16.04.1 LTS
+Release:	16.04
+Codename:	xenial
+
+## od
+
+od prints the octal representation of files
+
+    $ od README.md 
+    0000000 020043 067125 074151 061440 062550 072141 064163 062545
+    0000020 005164 020012 020055 067154 020012 020055 064546 062156
+    0000040 020012 020055 071147 070145 020012 020055 072543 066162
+    0000060 020012 020055 071562 067171 005143 026440 072040 071141
+
+the -c flag allow the see the printable character
+
+    $ od -c README.md
+    0000000   #       U   n   i   x       c   h   e   a   t   s   h   e   e
+    0000020   t  \n  \n       -       l   n  \n       -       f   i   n   d
+    0000040  \n       -       g   r   e   p  \n       -       c   u   r   l
+    0000060  \n       -       r   s   y   n   c  \n       -       t   a   r    
+
+## hd
+
+hd prints the hexadecimal representation of a file
+
+    $ hd README.md 
+    00000000  23 20 55 6e 69 78 20 63  68 65 61 74 73 68 65 65  |# Unix cheatshee|
+    00000010  74 0a 0a 20 2d 20 6c 6e  0a 20 2d 20 66 69 6e 64  |t.. - ln. - find|
+    00000020  0a 20 2d 20 67 72 65 70  0a 20 2d 20 63 75 72 6c  |. - grep. - curl|
+    00000030  0a 20 2d 20 72 73 79 6e  63 0a 20 2d 20 74 61 72  |. - rsync. - tar|
+    00000040  0a 20 2d 20 77 61 74 63  68 0a 20 2d 20 75 6e 61  |. - watch. - una|
+    00000050  6d 65 0a 0a 68 74 74 70  73 3a 2f 2f 67 69 74 68  |me..https://gith|
+    00000060  75 62 2e 63 6f 6d 2f 6a  6c 65 76 79 2f 74 68 65  |ub.com/jlevy/the|
+    00000070  2d 61 72 74 2d 6f 66 2d  63 6f 6d 6d 61 6e 64 2d  |-art-of-command-|
+    00000080  6c 69 6e 65 0a 0a 23 23  20 6c 6e 0a 0a 20 20 20  |line..## ln..   |
+    00000090  20 6c 6e 20 2d 73 20 7b  66 69 6c 65 6e 61 6d 65  | ln -s {filename|
+    000000a0  7d 20 7b 73 79 6d 62 6f  6c 69 63 2d 66 69 6c 65  |} {symbolic-file|
+
+
+
+## nproc
+
+nproc prints the number of processing units available
+
+    $ nproc
+    4
+
+## lshw
+
+lshw lists hardware information
+
+    $ lshw
+
+It can output the information as html with the -html flag
+
+    $ lshw
+
+## Display the process tree
+
+With the process names :
+
+    $ pstree
+
+With the process names and PIDs :
+
+    $ pstree -p
