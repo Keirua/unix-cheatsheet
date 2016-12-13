@@ -56,7 +56,6 @@ Find all the files accessed less than 60 minutes ago :
 
     $ find -amin -60
 
-
 ## grep
 
 ### Search a string/regex inside a file
@@ -189,7 +188,6 @@ There are 2 options for compression :
 
     $ tar cvjf archive_name.bz2 dirname/
 
-
 ### Extracting all the files
 
 Extraction require the use of the **-x** flag. The exact command depends on the type of compression used, if any.
@@ -227,7 +225,6 @@ You can also specify a pattern using a regex with the flag --wildcards :
 Every 1 second, execute the "date" command
 
     $ watch -n 1 -t date
-
 
 ## uname && lsb_release
 
@@ -317,3 +314,38 @@ With the process names :
 With the process names and PIDs :
 
     $ pstree -p
+
+
+## tr
+
+Convert from lowercase to uppercase :
+
+    $ echo "plop" | tr a-z A-Z
+
+Delete repeating characters :
+
+    $ ps aux | tr -s " "
+
+Get only the digiets :
+
+    $ echo "my username is 432234" | tr -cd 0-9
+    432234
+
+**-d** removes the digits, and  **-c** gets the complement of the result.
+So **tr -cd 0-9** this command means "no (no digits)"
+
+
+## df
+
+df provides with information about disk space usage
+
+    df -h
+    Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+    udev               3,9G       0  3,9G   0% /dev
+    tmpfs              788M    9,8M  778M   2% /run
+    /dev/sda2          227G     58G  157G  27% /
+    tmpfs              3,9G    7,6M  3,9G   1% /dev/shm
+    tmpfs              5,0M    4,0K  5,0M   1% /run/lock
+    tmpfs              3,9G       0  3,9G   0% /sys/fs/cgroup
+    /dev/sda1          511M    3,6M  508M   1% /boot/efi
+    tmpfs              788M     56K  788M   1% /run/user/1000
