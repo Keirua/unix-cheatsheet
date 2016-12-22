@@ -91,6 +91,25 @@ Display all the lines in the file README that do not contain "git"
 
 git is on line 66
 
+### Display only the match, not the whole line :
+
+use option -o, or --only-matching
+
+    $ grep "th" *
+
+    some-text-file : the cat sat on the mat  
+    some-other-text-file : the quick brown fox  
+    yet-another-text-file : i hope this explains it thoroughly 
+
+    $ grep -o "\w*th\w*" *
+
+    the
+    the
+    the
+    this
+    thoroughly
+
+
 ## curl
 
 ### Follow redirects : 
