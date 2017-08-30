@@ -11,6 +11,19 @@ Some CLI goodness. A good place to get started before reading this collection of
  - watch
  - uname
 
+## convert
+
+### Resize all images in a directoy to half their size
+
+```bash
+	for file in *.JPG; do convert $file -resize 50% resized-$file; done
+```
+
+### Append 2 images and resize
+
+```bash
+convert imgA.JPG imgB.JPG -append -resize 25% composite.jpg
+```
 ## ln
 
     ln -s {filename} {symbolic-filename}
