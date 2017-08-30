@@ -1,6 +1,6 @@
 # Unix cheatsheet
 
-Some CLI goodness. A good place to get started before reading this collection of tools is [The Art Of Command Line](is https://github.com/jlevy/the-art-of-command-line).
+Some CLI goodness. A good place to get started before reading this collection of tools is [The Art Of Command Line](https://github.com/jlevy/the-art-of-command-line).
 
  - ln
  - find
@@ -16,7 +16,7 @@ Some CLI goodness. A good place to get started before reading this collection of
 ### Resize all images in a directoy to half their size
 
 ```bash
-	for file in *.JPG; do convert $file -resize 50% resized-$file; done
+for file in *.JPG; do convert $file -resize 50% resized-$file; done
 ```
 
 ### Append 2 images and resize
