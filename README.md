@@ -353,6 +353,10 @@ You can also specify a pattern using a regex with the flag --wildcards :
 
 ### Periodically execute a command
 
+By default, it's every 2 seconds.
+
+    $ watch "ls /proc/9916/fd -al"
+
 Every 1 second, execute the "date" command
 
     $ watch -n 1 -t date
