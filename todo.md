@@ -24,11 +24,11 @@ http://wiki.linux-france.org/wiki/Les_commandes_fondamentales_de_Linux/Arboresce
 
 # Not 101 but almost
 
-[x] tr
-[x] find
-[x] grep
-[x] tar
-[x] ln
+ [x] tr
+ [x] find
+ [x] grep
+ [x] tar
+ [x] ln
  - cut/paste/join
  - sort
  - uniq
@@ -49,7 +49,7 @@ http://wiki.linux-france.org/wiki/Les_commandes_fondamentales_de_Linux/Arboresce
 # more advanced and/or less common tools
 
  - whatis
- - locate/whereis 
+ - locate/whereis
  - bc
  - date/cal
  - chown/chattr/chmod
@@ -86,7 +86,7 @@ http://wiki.linux-france.org/wiki/Les_commandes_fondamentales_de_Linux/Arboresce
  - file
 
 # network-related tools
- 
+
  - curl/wget
  - rsync
  - ping

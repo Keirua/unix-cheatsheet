@@ -11,6 +11,56 @@ Some CLI goodness. A good place to get started before reading this collection of
  - watch
  - uname
 
+## bash
+
+### for, while, if
+
+  for file in *.JPG; do convert $file -resize 50% resized-$file; done
+
+  cat README.md|grep '#' | while read line; do echo $line; done
+
+### sample bash script organization
+
+```bash
+#!/bin/bash
+
+main () {
+	echo `three_random_words`
+}
+
+three_random_words() {
+	for i in {1..3}; do
+		echo `random_word`
+	done
+}
+
+random_word() {
+	index=`expr $RANDOM \% $(count) + 1`
+	words | head -$index|tail -1
+}
+
+words() {
+	paths |
+	extract_words_from_paths |
+	remove_non_alpha_chars |
+	downcase |
+	remove_long_words |
+	unique |
+	remove_confusing_characters
+}
+
+count() { words | wc -l }
+paths() { find /usr/share/man -type f }
+extract_words_from_paths() { sed 's/^.*\///' | sed 's/\..*$//' }
+remove_non_alpha_chars() { grep -v '[^[:alpha:]]' }
+downcase(){ tr  'A-Z' 'a-z' }
+remove_long_words(){ egrep '^.{1,4}$' }
+unique(){ sort | uniq }
+remove_confusing_characters () { grep -v '1' | grep -v 'I' | grep -v '0' |grep -v 'O' }
+
+main
+```
+
 ## convert
 
 ### Resize all images in a directoy to half their size
@@ -112,7 +162,7 @@ use option -o, or --only-matching
 
     some-text-file : the cat sat on the mat  
     some-other-text-file : the quick brown fox  
-    yet-another-text-file : i hope this explains it thoroughly 
+    yet-another-text-file : i hope this explains it thoroughly
 
     $ grep -o "\w*th\w*" *
 
@@ -122,10 +172,33 @@ use option -o, or --only-matching
     this
     thoroughly
 
+## wc
+
+The flags are
+ - -w for number of words
+ - -l for number of lines
+ - -c for number of bytes (or -m for the number of characters)
+
+```bash
+$ cat README.md| wc -l
+433
+$ wc README.md -l
+433 README.md
+```
+
+## cut
+
+ - -d specificies the delimiter (here, a space)
+ - -f specifies which field to take (1-indexed. Here, the second one)
+
+```bash
+$ wc README.md -l | cut -d " " -f 2
+README.md
+```
 
 ## curl
 
-### Follow redirects : 
+### Follow redirects :
 
     curl -I -L  www.google.com
     HTTP/1.1 302 Found
@@ -199,7 +272,7 @@ Because I got sick of being [like this](https://xkcd.com/1168/).
     **v** : verbosely list files which are processed.
     **f** : following is the archive file name
 
-Uncompressed archives can be updated with the **r flag** : files/directories can be added : 
+Uncompressed archives can be updated with the **r flag** : files/directories can be added :
 
     $ tar rvf archive_name.tar newFile
     $ tar rvf archive_name.tar newDirectory/
@@ -213,7 +286,7 @@ The new file or new directory will be added to the existing archive_name.tar.
 There are 2 options for compression :
 
  - gzip using the **z flag**
-    
+
     $ tar cvzf archive_name.tar.gz dirname/
 
  - bz2 using the **j flag**
@@ -271,7 +344,7 @@ uname give some sytem details information. The -a (or --all) option prints every
     Linux
     $ uname -n
     pc-work
-    $ uname -m 
+    $ uname -m
     x86_64
 
 lsb_release also gives details about the distro info
@@ -287,7 +360,7 @@ Codename:	xenial
 
 od prints the octal representation of files
 
-    $ od README.md 
+    $ od README.md
     0000000 020043 067125 074151 061440 062550 072141 064163 062545
     0000020 005164 020012 020055 067154 020012 020055 064546 062156
     0000040 020012 020055 071147 070145 020012 020055 072543 066162
@@ -305,7 +378,7 @@ the -c flag allow the see the printable character
 
 hd prints the hexadecimal representation of a file
 
-    $ hd README.md 
+    $ hd README.md
     00000000  23 20 55 6e 69 78 20 63  68 65 61 74 73 68 65 65  |# Unix cheatshee|
     00000010  74 0a 0a 20 2d 20 6c 6e  0a 20 2d 20 66 69 6e 64  |t.. - ln. - find|
     00000020  0a 20 2d 20 67 72 65 70  0a 20 2d 20 63 75 72 6c  |. - grep. - curl|
