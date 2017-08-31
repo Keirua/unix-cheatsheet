@@ -24,27 +24,27 @@ http://wiki.linux-france.org/wiki/Les_commandes_fondamentales_de_Linux/Arboresce
 
 # Not 101 but almost
 
- [x] tr
- [x] find
- [x] grep
- [x] tar
- [x] ln
- - cut/paste/join
- - sort
- - uniq
- - tee
- - wc (-l, -w, -c)
- - diff/sdiff/cmp
- - expand grep with egrep/rgrep
- - du/df/free
- - watch
- - shutdown
- - sed
- - alias
- - xargs
- - bg/fg
- - screen
- - vim
+ - [x] tr
+ - [x] find
+ - [x] grep
+ - [x] tar
+ - [x] ln
+ - [] cut/paste/join
+ - [x] sort
+ - [x] uniq
+ - [] tee
+ - [x] wc (-l, -w, -c)
+ - [] diff/sdiff/cmp
+ - [] expand grep with egrep/rgrep
+ - [] du/df/free
+ - [] watch
+ - [] shutdown
+ - [] sed
+ - [] alias
+ - [] xargs
+ - [] bg/fg
+ - [] screen
+ - [] vim
 
 # more advanced and/or less common tools
 

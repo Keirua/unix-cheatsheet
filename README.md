@@ -196,6 +196,32 @@ $ wc README.md -l | cut -d " " -f 2
 README.md
 ```
 
+## sort
+
+sort lines.
+
+ - -r for reverse order
+ - -n for numerical comparison (instead of string comparison)
+
+```bash
+$ ls /bin | sort -r
+```
+
+## uniq
+
+### Remove duplicates in list
+
+```bash
+find /usr/share/man -type f | sed 's/.*\///' | sed 's/\..*//' | uniq
+```
+
+### Find duplicates
+
+```bash
+find /usr/share/man -type f | sed 's/.*\///' | sed 's/\..*//' | uniq -d
+```
+
+
 ## curl
 
 ### Follow redirects :
