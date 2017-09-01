@@ -2,6 +2,12 @@
 
 Some CLI goodness. A good place to get started before reading this collection of tools is [The Art Of Command Line](https://github.com/jlevy/the-art-of-command-line).
 
+Other interesting places are
+
+ - [explainshell](https://www.explainshell.com/)
+ - [BashOneliners](http://www.bashoneliners.com/oneliners/oneliner/popular/)
+ - [CommandLineFu](http://www.commandlinefu.com/commands/browse)
+
  - ln
  - find
  - grep
@@ -230,7 +236,21 @@ find /usr/share/man -type f | sed 's/.*\///' | sed 's/\..*//' | uniq
 ```bash
 find /usr/share/man -type f | sed 's/.*\///' | sed 's/\..*//' | uniq -d
 ```
+## seq
 
+### Generate some random numbers
+
+```bash
+seq 8|shuf
+3
+7
+1
+5
+4
+6
+2
+8
+```
 
 ## curl
 
