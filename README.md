@@ -172,6 +172,16 @@ use option -o, or --only-matching
     this
     thoroughly
 
+### Obtain result count
+
+use flag -c
+
+	cat /proc/cpuinfo |grep -i "^processor" -c
+
+This is the same as 
+
+	cat /proc/cpuinfo |grep -i "^processor" | wc -l
+
 ## wc
 
 The flags are
